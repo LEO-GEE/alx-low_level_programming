@@ -27,56 +27,57 @@ void print_all(const char * const format, ...)
 
 			case 'c':
 
-	printf("%c", va_arg(a_list, int));
+				printf("%c", va_arg(a_list, int));
 
-	flag = 0;
-				break;																																			case 'i':
-printf("%i", va_arg(a_list, int));
+				flag = 0;
 
-																																									flag = 0;
+				break;
+			case 'i':
 
-																																													break;
+				printf("%i", va_arg(a_list, int));
+				flag = 0;
 
-																																																case 'f':
+				break;
 
-																																																	printf("%f", va_arg(a_list, double));
+			case 'f':
 
-																																																					flag = 0;
+				printf("%f", va_arg(a_list, double));
 
-																																																									break;
+				flag = 0;
 
-																																																												case 's':
+				break;
 
-																																																													str = va_arg(a_list, char*);
+			case 's':
 
-																																																																	if (str == NULL)
+				str = va_arg(a_list, char*);
 
-																																																																							str = "(nil)";
+				if (str == NULL)
+														str = "(nil)";
 
-																																																																					printf("%s", str);
+				printf("%s", str);
 
-																																																																									flag = 0;
+				flag = 0;
 
-																																																																													break;
+				break;
 
-																																																																																default:
+			default:
 
-																																																																																	flag = 1;
+				flag = 1;
 
-																																																																																					break;
+				break;
 
-																																																																																							}
+		}
 
-															if (format[i + 1] != '\0' && flag == 0)
+		if (format[i + 1] != '\0' && flag == 0)
 
-																			printf(", ");
+			printf(", ");
 
-																	i++;
+		i++;
 
-																		}
+	}
 
-									printf("\n");
+	printf("\n");
 
-										va_end(a_list);
+	va_end(a_list);
 
 }
