@@ -18,7 +18,6 @@ int main(int argc, char **argv)
 	int cents[] = {25, 10, 5, 2};
 
 	if (argc != 2)
-
 	{
 		printf("Error\n");
 		return (1);
@@ -31,21 +30,21 @@ int main(int argc, char **argv)
 		{
 			for (i = 0; i < sizeof(cents[i]); i++)
 			{
-				if (total >= cents[i]
+				if (total >= cents[i])
 				{
-						count += total / cents[i];
-						total = total % cents[i];
+					count += total / cents[i];
+					total = total % cents[i];
 				}
 			}
 		}
-			if (total == 1)
+		if (total == 1)
 			count++;
-			}
-			else
-			{
-			printf("Error\n");
-			return (1);
-			}
-			pintf("%d\n", count);
-			return (0);
+	}
+	else
+	{
+		printf("Error\n");
+		return (1);
+	}
+	printf("%d\n", count);
+	return (0);
 }
